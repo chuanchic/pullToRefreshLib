@@ -12,20 +12,20 @@ import java.util.List;
  * 通用RecyclerView帮助类
  */
 public abstract class CommonRecyclerViewHelper {
-    private static final int Scroll_From_Top_To_Bottom = 1;//从上往下滑动
-    private static final int Scroll_From_Bottom_To_Top = 2;//从下往上滑动
+    protected static final int Scroll_From_Top_To_Bottom = 1;//从上往下滑动
+    protected static final int Scroll_From_Bottom_To_Top = 2;//从下往上滑动
     public static final int Page_First = 1;//第一页
     public static final int Page_Count = 16;//每页条数
-    private Activity activity;
-    private Fragment fragment;
-    private View rootView;
-    private MyScrollListener myScrollListener;
-    private GridLayoutManager gridLayoutManager;
+    protected Activity activity;
+    protected Fragment fragment;
+    protected View rootView;
+    protected MyScrollListener myScrollListener;
+    protected GridLayoutManager gridLayoutManager;
     public RecyclerView recyclerView;
     public CommonRecyclerViewAdapter adapter;
     public List<CommonEntity> list;
     public boolean isLoadingData;//true正在加载数据，false相反
-    private int scrolledOrientation;//滑动的方向
+    protected int scrolledOrientation;//滑动的方向
     public int totalScrolledY;//Y方向滑动的距离
     public int page = Page_First;//第几页
 
@@ -44,7 +44,7 @@ public abstract class CommonRecyclerViewHelper {
         init();
     }
 
-    private void init() {
+    protected void init() {
 
         gridLayoutManager = new GridLayoutManager(activity, 72, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);

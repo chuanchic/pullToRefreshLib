@@ -16,15 +16,15 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 public abstract class CommonListViewHelper {
     public static final int Page_First = 1;//第一页
     public static final int Page_Count = 16;//每页条数
-    private Activity activity;
-    private Fragment fragment;
-    private View rootView;
-    private MyScrollListener myScrollListener;
+    protected Activity activity;
+    protected Fragment fragment;
+    protected View rootView;
+    protected MyScrollListener myScrollListener;
     public PullToRefreshListView pullToRefreshListView;
     public ListView actualListView;
     public boolean isLoadingData;//true正在加载数据，false相反
     public int page = Page_First;//第几页
-    private int totalItemCount;
+    protected int totalItemCount;
 
     public CommonListViewHelper(Activity activity, View rootView, MyScrollListener myScrollListener){
         this.activity = activity;
@@ -41,7 +41,7 @@ public abstract class CommonListViewHelper {
         init();
     }
 
-    private void init() {
+    protected void init() {
         pullToRefreshListView = createPullToRefreshListView();
         pullToRefreshListView.setMode(PullToRefreshBase.Mode.DISABLED);
         actualListView = pullToRefreshListView.getRefreshableView();
