@@ -12,10 +12,10 @@ import java.util.List;
  * 通用RecyclerView适配器
  */
 public abstract class CommonRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
-    private Context mContext;
-    private Fragment fragment;
-    private List<CommonEntity> list;
-    private LayoutInflater inflater;
+    protected Context mContext;
+    protected Fragment fragment;
+    protected List<CommonEntity> list;
+    protected LayoutInflater inflater;
 
     public CommonRecyclerViewAdapter(Context mContext, Fragment fragment, List<CommonEntity> list){
         this.mContext = mContext;
