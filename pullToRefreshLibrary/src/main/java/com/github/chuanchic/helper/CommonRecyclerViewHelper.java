@@ -45,7 +45,7 @@ public abstract class CommonRecyclerViewHelper {
     }
 
     protected void init() {
-
+        recyclerView = createRecyclerView();
         gridLayoutManager = new GridLayoutManager(activity, 72, GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
