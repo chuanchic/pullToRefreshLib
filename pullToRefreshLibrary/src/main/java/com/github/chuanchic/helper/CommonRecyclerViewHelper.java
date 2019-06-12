@@ -1,6 +1,8 @@
 package com.github.chuanchic.helper;
 
 import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -124,16 +126,31 @@ public abstract class CommonRecyclerViewHelper {
         }
     }
 
-    public void scrollToPosition(int position){
-        gridLayoutManager.scrollToPosition(position);
+    public void scrollToPosition(final int position){
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                gridLayoutManager.scrollToPosition(position);
+            }
+        });
     }
 
-    public void smoothScrollToPosition(int position){
-        gridLayoutManager.smoothScrollToPosition(recyclerView, null, position);
+    public void smoothScrollToPosition(final int position){
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                gridLayoutManager.smoothScrollToPosition(recyclerView, null, position);
+            }
+        });
     }
 
-    public void scrollToPosition(int position, int offset){
-        gridLayoutManager.scrollToPositionWithOffset(position, offset);
+    public void scrollToPosition(final int position, final int offset){
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                gridLayoutManager.scrollToPositionWithOffset(position, offset);
+            }
+        });
     }
 
     public interface MyScrollListener{
