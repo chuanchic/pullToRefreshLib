@@ -128,6 +128,10 @@ public abstract class CommonRecyclerViewHelper {
         gridLayoutManager.scrollToPosition(position);
     }
 
+    public void smoothScrollToPosition(int position){
+        gridLayoutManager.smoothScrollToPosition(recyclerView, null, position);
+    }
+
     public void scrollToPosition(int position, int offset){
         gridLayoutManager.scrollToPositionWithOffset(position, offset);
     }
