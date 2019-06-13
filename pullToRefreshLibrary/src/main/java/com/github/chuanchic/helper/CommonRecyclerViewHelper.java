@@ -135,6 +135,15 @@ public abstract class CommonRecyclerViewHelper {
         });
     }
 
+    public void scrollToPosition(final int position, final int offset){
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                gridLayoutManager.scrollToPositionWithOffset(position, offset);
+            }
+        });
+    }
+
     public void smoothScrollToPosition(final int position){
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -144,11 +153,11 @@ public abstract class CommonRecyclerViewHelper {
         });
     }
 
-    public void scrollToPosition(final int position, final int offset){
+    public void smoothScrollBy(final int dx, final int dy){
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                gridLayoutManager.scrollToPositionWithOffset(position, offset);
+                recyclerView.smoothScrollBy(dx, dy);
             }
         });
     }
