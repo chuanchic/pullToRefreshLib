@@ -131,13 +131,13 @@ public abstract class CommonRecyclerViewHelper {
      * @param addInEnd true：在列表的末尾添加，false：在列表的开头添加
      * @param needScroll true：需要滚动，false：不需要滚动
      */
-    public void addLoadMoreItem(CommonNoMoreEntity noMoreEntity, boolean addInEnd, boolean needScroll){
+    public void addLoadMoreItem(CommonLoadMoreEntity loadMoreEntity, boolean addInEnd, boolean needScroll){
         if(list != null && list.size() > 0){
             if(addInEnd){//在列表的末尾添加
                 if(list.get(list.size() - 1).getViewType() == CommonViewType.LoadMore){
                     return;//已经存在，直接返回
                 }
-                list.add(noMoreEntity);
+                list.add(loadMoreEntity);
                 adapter.notifyItemRangeInserted(list.size() - 1, 1);
                 if(needScroll){//需要滚动
                     scrollToPosition(list.size() - 1);
@@ -146,7 +146,7 @@ public abstract class CommonRecyclerViewHelper {
                 if(list.get(0).getViewType() == CommonViewType.LoadMore){
                     return;//已经存在，直接返回
                 }
-                list.add(0, noMoreEntity);
+                list.add(0, loadMoreEntity);
                 adapter.notifyItemRangeInserted(0, 1);
                 if(needScroll){//需要滚动
                     scrollToPosition(0);
