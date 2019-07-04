@@ -126,6 +126,35 @@ public abstract class CommonRecyclerViewHelper {
         }
     }
 
+    /**
+     * 添加加载更多条目
+     * @param addInEnd true：在列表的末尾添加，false：在列表的开头添加
+     * @param needScroll true：需要滚动，false：不需要滚动
+     */
+    public void addLoadMoreItem(CommonNoMoreEntity noMoreEntity, boolean addInEnd, boolean needScroll){
+        if(list != null && list.size() > 0){
+            if(addInEnd){//在列表的末尾添加
+                if(list.get(list.size() - 1).getViewType() == CommonViewType.LoadMore){
+                    return;//已经存在，直接返回
+                }
+                list.add(noMoreEntity);
+                adapter.notifyItemRangeInserted(list.size() - 1, 1);
+                if(needScroll){//需要滚动
+                    scrollToPosition(list.size() - 1);
+                }
+            }else{//在列表的开头添加
+                if(list.get(0).getViewType() == CommonViewType.LoadMore){
+                    return;//已经存在，直接返回
+                }
+                list.add(0, noMoreEntity);
+                adapter.notifyItemRangeInserted(0, 1);
+                if(needScroll){//需要滚动
+                    scrollToPosition(0);
+                }
+            }
+        }
+    }
+
     public void scrollToPosition(final int position){
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
