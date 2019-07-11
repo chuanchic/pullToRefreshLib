@@ -27,6 +27,7 @@ public abstract class CommonRecyclerViewHelper {
     public CommonRecyclerViewAdapter adapter;
     public List<CommonEntity> list;
     public boolean isLoadingData;//true正在加载数据，false相反
+    public boolean isNoMoreData;//true：没有更多数据，false：相反
     protected int scrolledOrientation;//滑动的方向
     public int totalScrolledY;//Y方向滑动的距离
     public int page = Page_First;//第几页
@@ -103,6 +104,7 @@ public abstract class CommonRecyclerViewHelper {
      * @param needScroll true：需要滚动，false：不需要滚动
      */
     public void addNoMoreItem(CommonNoMoreEntity noMoreEntity, boolean addInEnd, boolean needScroll){
+        isNoMoreData = true;//没有更多
         if(list != null && list.size() > 0){
             if(addInEnd){//在列表的末尾添加
                 if(list.get(list.size() - 1).getViewType() == CommonViewType.NoMore){
