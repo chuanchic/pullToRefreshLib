@@ -28,6 +28,7 @@ public abstract class CommonRecyclerViewHelper {
     public List<CommonEntity> list;
     public boolean isLoadingData;//true正在加载数据，false相反
     public boolean isNoMoreData;//true：没有更多数据，false：相反
+    public boolean isEmptyData;//tru：数据为空，false：相反
     protected int scrolledOrientation;//滑动的方向
     public int totalScrolledY;//Y方向滑动的距离
     public int page = Page_First;//第几页
