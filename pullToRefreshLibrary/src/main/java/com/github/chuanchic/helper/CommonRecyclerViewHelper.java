@@ -33,19 +33,21 @@ public abstract class CommonRecyclerViewHelper {
     public int totalScrolledY;//Y方向滑动的距离
     public int page = Page_First;//第几页
 
-    public CommonRecyclerViewHelper(Activity activity, View rootView, CommonRecyclerViewAdapter adapter, MyScrollListener myScrollListener){
+    public CommonRecyclerViewHelper(Activity activity, View rootView, CommonRecyclerViewAdapter adapter, List<CommonEntity> list, MyScrollListener myScrollListener){
         this.activity = activity;
         this.rootView = rootView;
         this.adapter = adapter;
+        this.list = list;
         this.myScrollListener = myScrollListener;
         init();
     }
 
-    public CommonRecyclerViewHelper(Fragment fragment, View rootView, CommonRecyclerViewAdapter adapter, MyScrollListener myScrollListener){
+    public CommonRecyclerViewHelper(Fragment fragment, View rootView, CommonRecyclerViewAdapter adapter, List<CommonEntity> list, MyScrollListener myScrollListener){
         this.activity = fragment.getActivity();
         this.fragment = fragment;
         this.rootView = rootView;
         this.adapter = adapter;
+        this.list = list;
         this.myScrollListener = myScrollListener;
         init();
     }
