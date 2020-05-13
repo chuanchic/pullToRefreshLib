@@ -31,7 +31,7 @@ public abstract class CommonRecyclerViewAdapter extends RecyclerView.Adapter<Rec
 
     @Override
     public int getItemViewType(int position) {
-        if(list != null && position >= 0 && position < list.size()){
+        if(list != null && position >= 0 && position < list.size() && list.get(position) != null){
             return list.get(position).getViewType();
         }
         return super.getItemViewType(position);
@@ -44,7 +44,7 @@ public abstract class CommonRecyclerViewAdapter extends RecyclerView.Adapter<Rec
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if(list != null && position >= 0 && position < list.size()){
+        if(list != null && position >= 0 && position < list.size() && list.get(position) != null){
             if(holder instanceof BaseViewHolder){
                 BaseViewHolder viewHolder = (BaseViewHolder) holder;
                 viewHolder.updateUI(list, position);
