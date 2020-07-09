@@ -16,8 +16,6 @@ import java.util.List;
 public abstract class CommonRecyclerViewHelper {
     protected static final int Scroll_From_Top_To_Bottom = 1;//从上往下滑动
     protected static final int Scroll_From_Bottom_To_Top = 2;//从下往上滑动
-    public static final int Page_First = 1;//第一页
-    public static int Page_Count = 16;//每页条数
     protected Activity activity;
     protected Fragment fragment;
     protected View rootView;
@@ -28,7 +26,6 @@ public abstract class CommonRecyclerViewHelper {
     public List<CommonEntity> list;
     protected int scrolledOrientation;//滑动的方向
     public int totalScrolledY;//Y方向滑动的距离
-    public int page = Page_First;//第几页
 
     public CommonRecyclerViewHelper(Activity activity, View rootView, CommonRecyclerViewAdapter adapter, List<CommonEntity> list, MyScrollListener myScrollListener){
         this.activity = activity;
